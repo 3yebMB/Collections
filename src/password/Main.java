@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws PasswordIsNotException {
         final String pass1 = "Ab2!G#1k#";
         final String pass2 = "Abc!fG#lk";
         final String pass3 = "AAAAAAAA";
@@ -26,9 +26,12 @@ public class Main {
         System.out.println("Пароль " + pass8 + ((checkPass(pass8))?(" валидный"):(" не валиден.")));
     }
 
-    public static boolean checkPass(String pass){
+    public static boolean checkPass(String pass) throws PasswordIsNotException{
         Pattern p = Pattern.compile("^(?=.+[A-Z])(?=.+[a-z])(?=.+[0-9])(?=.+[+/#?!@$~%^&*-])([\\S]){8,}$");
         Matcher m = p.matcher(pass);
-        return m.matches();
+        if (m.matches())
+            return m.matches();
+        else
+            throw new PasswordIsNotException("Пароль не удовлетворяет условиям.");
     }
 }
