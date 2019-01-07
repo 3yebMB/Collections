@@ -17,7 +17,13 @@ public class Main {
         final String pass8 = "$sApDr0W!";
 
         System.out.println("Пароль " + pass1 + ((checkPass(pass1))?(" валидный"):(" не валиден.")));
-        System.out.println("Пароль " + pass2 + ((checkPass(pass2))?(" валидный"):(" не валиден.")));
+        try{
+            System.out.println("Пароль " + pass2 + ((checkPass(pass2))?(" валидный"):(" не валиден.")));
+        }
+        catch (PasswordIsNotException e){
+            System.out.println("Упс! Ваш пароль не достаточно стоек!");
+        }
+
         System.out.println("Пароль " + pass3 + ((checkPass(pass3))?(" валидный"):(" не валиден.")));
         System.out.println("Пароль " + pass4 + ((checkPass(pass4))?(" валидный"):(" не валиден.")));
         System.out.println("Пароль " + pass5 + ((checkPass(pass5))?(" валидный"):(" не валиден.")));
