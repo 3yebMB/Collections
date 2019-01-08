@@ -4,33 +4,32 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        final int STRING_COUNT = 13;
-        ArrayList<String> arrayList = new ArrayList<>(STRING_COUNT);
+        final int STRING_COUNT = 11;
+        ArrayList<String> arrayList = new ArrayList<>(STRING_COUNT+2);
         int count = 1;
 
         for (int i = 0; i < STRING_COUNT; i++) {
             arrayList.add(createRandomString(10));
         }
 
-        String casualStringArray[] = new String[arrayList.size()];
-        arrayList.toArray(casualStringArray);
-        // создать можно было сразу обычный массив, но тема урока была коллекции... (:
-        // а дальше с обычным массивом работать удобнее.
+        arrayList.add(0, arrayList.get(arrayList.size()-1));
+        arrayList.add(arrayList.size()/2, arrayList.get(arrayList.size()/2-1));
 
-        casualStringArray[0] = casualStringArray[casualStringArray.length - 1];
-        casualStringArray[casualStringArray.length / 2] = casualStringArray[casualStringArray.length / 2 - 1];
-        // повторяющиеся элементы
 
-        for (int i = 0; i < casualStringArray.length; i++) {
+        System.out.println("Все элементы списка : ");
+        System.out.println(arrayList);
+
+        String tmp;
+        for (int i=0; i<arrayList.size(); i++) {
             count = 1;
-            for (int y = i+1; y < casualStringArray.length; y++) {
-                if (casualStringArray[i].equals(casualStringArray[y]))
+            tmp = arrayList.get(i);
+            for (int y = i + 1; y < arrayList.size(); y++) {
+                if (tmp.equalsIgnoreCase(arrayList.get(y))){
+                    arrayList.remove(y);
                     count++;
+                }
             }
-            if (count == 1)
-                System.out.println(casualStringArray[i]);
-//            System.out.println("Строка " + casualStringArray[i] + " встречается " + count + " раз");
-            // второй вариант
+            System.out.println("Строка " + arrayList.get(i) + " встречается " + count + " раз.");
         }
     }
 
