@@ -1,3 +1,7 @@
+/*
+*    Создать массив с набором слов (10-20 слов, среди которых должны встречаться повторяющиеся).
+*    Посчитать, сколько раз встречается каждое слово.
+ */
 package password;
 
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
