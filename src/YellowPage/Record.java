@@ -1,4 +1,4 @@
-package Collection;
+package YellowPage;
 
 public abstract class Record {
     public Record() {
