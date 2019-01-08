@@ -16,20 +16,25 @@ public class Main {
         final String pass7 = "kZ@~1QqP+";
         final String pass8 = "$sApDr0W!";
 
-        System.out.println("Пароль " + pass1 + ((checkPass(pass1))?(" валидный"):(" не валиден.")));
+        System.out.println("Пароль " + pass1 + isValidPass(checkPass(pass1)));
         try{
-            System.out.println("Пароль " + pass2 + ((checkPass(pass2))?(" валидный"):(" не валиден.")));
+            System.out.println("Пароль " + pass2 + isValidPass(checkPass(pass2)));
         }
         catch (PasswordIsNotException e){
             System.out.println("Упс! Ваш пароль не достаточно стоек!");
         }
 
-        System.out.println("Пароль " + pass3 + ((checkPass(pass3))?(" валидный"):(" не валиден.")));
-        System.out.println("Пароль " + pass4 + ((checkPass(pass4))?(" валидный"):(" не валиден.")));
-        System.out.println("Пароль " + pass5 + ((checkPass(pass5))?(" валидный"):(" не валиден.")));
-        System.out.println("Пароль " + pass6 + ((checkPass(pass6))?(" валидный"):(" не валиден.")));
-        System.out.println("Пароль " + pass7 + ((checkPass(pass7))?(" валидный"):(" не валиден.")));
-        System.out.println("Пароль " + pass8 + ((checkPass(pass8))?(" валидный"):(" не валиден.")));
+        System.out.println("Пароль " + pass3 + isValidPass(checkPass(pass3)));
+        System.out.println("Пароль " + pass4 + isValidPass(checkPass(pass4)));
+        System.out.println("Пароль " + pass5 + isValidPass(checkPass(pass5)));
+        System.out.println("Пароль " + pass6 + isValidPass(checkPass(pass6)));
+        System.out.println("Пароль " + pass7 + isValidPass(checkPass(pass7)));
+        System.out.println("Пароль " + pass8 + isValidPass(checkPass(pass8)));
+    }
+
+    public static String isValidPass(boolean b){
+        if (b) return " валидный.";
+        else return " не валиден.";
     }
 
     public static boolean checkPass(String pass) throws PasswordIsNotException{
